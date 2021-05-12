@@ -13,6 +13,7 @@ let angle = [];
 let trainer = [];
 
 let state = 'waiting'; //hi
+let texts;
 
 function setup() {
   cnv = createCanvas(768, 576);
@@ -36,6 +37,40 @@ function setup() {
     weights: './model/model.weights.bin',
   };
   brain.load(modelInfo, brainLoaded);
+
+  // speech recognition
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  let recognition = new SpeechRecognition();
+  recognition.interimResults = true;
+  recognition.lang = 'ko-KR';
+
+  let makeNewTextContent = function() {
+    // p = document.createElement('p');
+    // document.querySelector('.words').appendChild(p);
+    // console.log(p);
+  };
+  let p = null;
+
+  recognition.start();
+  recognition.onstart = function() {
+    makeNewTextContent(); // 음성 인식 시작시마다 새로운 문단을 추가한다.
+  };
+
+  recognition.onend = function() {
+    recognition.start();
+  };
+
+  recognition.onresult = function(e) {
+    texts = Array.from(e.results)
+            .map(results => results[0].transcript).join("");
+
+    console.log(texts);
+    if(texts=="다음")
+    {
+      classifyPose();
+    }
+  };
 }
 
 function brainLoaded() {
