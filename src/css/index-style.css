@@ -1,5 +1,5 @@
 body {
-    background-image: url('./images/background.jpg');
+    background-image: url('../images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -12,14 +12,13 @@ h1 {
 }
 
 h2 {
-    font-size: 2.0em;
+    font-size: 2em;
     margin: 0;
 }
 
 a {
     text-decoration: none;
-    color: #2A2F36;
-
+    color: #2a2f36;
 }
 
 .title {
@@ -39,5 +38,5 @@ a {
 }
 
 .button:hover {
-    background-color: rgba( 255, 255, 255, 0.5 );
+    background-color: rgba(255, 255, 255, 0.5);
 }
