@@ -21,22 +21,38 @@ a {
     color: #2a2f36;
 }
 
+button {
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
 .title {
     margin-top: 13em;
     margin-left: 11em;
     letter-spacing: 0.3em;
 }
 
+.buttons {
+    display: flex;
+    margin-left: 15em;
+}
+
 .button {
     margin-top: 3em;
-    margin-left: 20em;
-    width: 5%;
+    margin-right: 20px;
+    width: 10%;
     /* background-color: white; */
     border: 3px solid white;
-    padding: 5px 30px 5px 30px;
+    padding: 5px 5px;
     border-radius: 15px;
+    text-align: center;
 }
 
 .button:hover {
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+#start_btn {
+    display: none;
 }
